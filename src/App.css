@@ -1,69 +1,210 @@
-
-/* Global Styles */
+/* General Reset and Body Styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* Parallax Section */
-.parallax-section {
-  position: relative;
-  height: 100vh;  /* Full screen height */
+/* Navbar Styling with Transparency and Blur Effect */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 121, 107, 0.8); /* Semi-transparent Green */
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(15px); /* Blur effect for transparency */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow to give depth */
+}
+
+.navbar .logo {
+  font-size: 2em;
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #004d40; /* Hover effect */
+}
+
+/* Hero Section with Parallax */
+.parallax {
+  height: 100vh;
+  background-image: url('./assets/water-landscape.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
-  text-align: center;
-  padding: 0 20px;
-  overflow: hidden;
 }
 
-.parallax-section .content {
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.5); /* Optional: background color for content */
-  border-radius: 8px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
-  max-width: 80%;
+.hero-text h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Improved text-shadow for visibility */
+}
+
+.hero-text p {
+  font-size: 1.5em;
+  margin-top: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Improved text-shadow for visibility */
+}
+
+.hero-btn {
+  background-color: #00796b;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.hero-btn:hover {
+  background-color: #004d40;
+  cursor: pointer;
+}
+
+/* About Section */
+.content-section {
+  padding: 80px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.content-section h2 {
+  font-size: 2.5em;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+.content-section p {
+  font-size: 1.2em;
+  color: #333;
+  max-width: 800px;
   margin: 0 auto;
+  line-height: 1.8;
 }
 
-.parallax-section h1 {
-  font-size: 4rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+/* Why Forecasting Section */
+.content-section.alt-bg {
+  background-color: #e0f2f1;
+  color: #333;
 }
 
-.parallax-section p {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+.content-section.alt-bg h2 {
+  color: #00796b;
 }
 
-/* Normal Section */
-.normal-section {
-  background-color: #f4f4f4;
-  padding: 50px 0;
+/* Get Started Section - Centered Button */
+#get-started {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background-color: #ffffff;
   text-align: center;
 }
 
-.normal-section .content {
+#get-started h2 {
+  font-size: 2.5em;
+  color: #00796b;
+  margin-bottom: 30px;
+}
+
+#get-started p {
+  font-size: 1.3em;
+  color: #333;
+  line-height: 1.8;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.normal-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.cta-btn {
+  background-color: #00796b;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  display: inline-block;
 }
 
-.normal-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.cta-btn:hover {
+  background-color: #004d40;
+  cursor: pointer;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #00796b;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer p {
+  font-size: 1em;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5em;
+  }
+
+  .hero-text p {
+    font-size: 1.2em;
+  }
+
+  .cta-btn {
+    font-size: 1.1em;
+    padding: 10px 25px;
+  }
+
+  .content-section h2 {
+    font-size: 2em;
+  }
+
+  .content-section p {
+    font-size: 1.1em;
+  }
 }
