@@ -1,0 +1,146 @@
+/* Global reset and box-sizing */
+* {
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; /* Ensures full width */
+    background: rgba(23, 52, 71, 0.7); /* semi-transparent */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+  }
+  
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    color: #00bcd4;
+  }
+  
+  /* Parallax Hero Section */
+  .parallax {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .hero-text {
+    background: rgba(0, 0, 0, 0.4); /* makes text visible */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+  }
+  
+  .hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .hero-btn:hover {
+    background-color: #0097a7;
+  }
+  
+  /* Sections */
+  .content-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f5f5f5;
+  }
+  
+  .alt-bg {
+    background-color: #e0f7fa;
+  }
+  
+  .content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content-section p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-btn {
+    margin-top: 2rem;
+    display: inline-block;
+    background-color: #00bcd4;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .cta-btn:hover {
+    background-color: #004d40;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #172c47;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  

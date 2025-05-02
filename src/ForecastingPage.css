@@ -1,0 +1,166 @@
+/* Forecasting Page Styles */
+.forecasting-page {
+    font-family: 'Arial', sans-serif;
+    padding: 50px;
+    background: #f4f7fc;
+  }
+  
+  /* Intro Section */
+  .intro-section {
+    text-align: center;
+    background: linear-gradient(45deg, #00bcd4, #0288d1); /* Match the home page blue theme */
+    color: white;
+    padding: 80px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+  }
+  
+  .intro-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .intro-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Data Input Section */
+  .data-input-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+  }
+  
+  .data-input-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .data-input-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .upload-btn {
+    background-color: #00bcd4; /* Match home page color */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-btn:hover {
+    background-color: #0288d1; /* Slightly darker for hover effect */
+  }
+  
+  /* Benefits Section */
+  .benefits-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .benefits-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .benefits-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .benefit-card {
+    background-color: #ffffff;
+    padding: 30px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .benefit-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Learn More Section */
+  .learn-more-section {
+    background: #e0f7fa;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .learn-more-btn {
+    background: #00bcd4; /* Match home page color */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #0288d1; /* Slightly darker for hover effect */
+  }
+  
+  /* Forecast Results Section */
+  .forecast-results-section {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .forecast-results-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .forecast-results-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .forecast-btn {
+    background-color: #00bcd4; /* Match home page color */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .forecast-btn:hover {
+    background-color: #0288d1; /* Slightly darker for hover effect */
+  }
+  
