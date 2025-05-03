@@ -1,0 +1,201 @@
+/* General Styles */
+body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    height: 100%;
+  }
+  
+  /* Main Page Layout */
+  .upload-page {
+    margin: 0 auto;
+    min-height: 100vh; /* Ensures the footer sticks to the bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Header Section */
+  .upload-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .upload-header h1 {
+    font-size: 3rem;
+    color: #172c47;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .upload-header p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* Upload Instructions Section */
+  .upload-instructions {
+    background-color: #00bcd4;
+    color: white;
+    padding: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-instructions h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .upload-instructions p {
+    font-size: 1.1rem;
+    color: #f7f7f7;
+  }
+  
+  .upload-instructions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .upload-instructions ul li {
+    font-size: 1.1rem;
+    color: #f7f7f7;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .upload-instructions ul li:before {
+    content: "•";
+    margin-right: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .upload-instructions p strong {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  /* File Upload Section */
+  .file-upload-section {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .file-upload-section h2 {
+    font-size: 2.5rem;
+    color: #172c47;
+    margin-bottom: 1.5rem;
+  }
+  
+  .file-upload-section input[type="file"] {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .file-upload-section input[type="file"]:hover {
+    background-color: #e0f7fa;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .file-upload-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+  
+  .upload-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+  }
+  
+  .upload-btn:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+  }
+  
+  .upload-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .upload-btn:disabled:hover {
+    background-color: #aaa;
+    transform: none;
+  }
+  
+  /* Back to Forecasting Button Container */
+  .back-to-forecast-btn-container {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .back-to-forecast-btn {
+    background-color: #00bcd4;
+    color: white;
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 2rem;
+    display: inline-block;
+  }
+  
+  .back-to-forecast-btn:hover {
+    background-color: #0097a7;
+    transform: scale(1.05);
+  }
+  
+  /* Footer Section */
+  .upload-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    background-color: #172c47;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .upload-footer p {
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 0;
+  }
+  

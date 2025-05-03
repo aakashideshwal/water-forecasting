@@ -1,7 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomePage from "./HomePage"; // your current landing page
-import ForecastingPage from "./ForecastingPage"; // new forecasting page
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import ForecastingPage from "./ForecastingPage";
+import DocumentationPage from "./DocumentationPage"; // Make sure this file exists
+import UploadPage from './UploadPage';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/forecast" element={<ForecastingPage />} />
+        <Route path="/documentation" element={<DocumentationPage />} />
+        <Route path="/upload" element={<UploadPage />} />
       </Routes>
     </Router>
   );

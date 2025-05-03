@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 import './ForecastingPage.css';
 
 function ForecastingPage() {
@@ -8,7 +9,8 @@ function ForecastingPage() {
       <section className="intro-section">
         <h2>Water Demand Forecasting</h2>
         <p>
-          Discover how AI and machine learning can help us predict future water needs, ensuring sustainability and optimal resource management.
+          Discover how AI and machine learning can help us predict future water needs,
+          ensuring sustainability and optimal resource management.
         </p>
       </section>
 
@@ -16,9 +18,13 @@ function ForecastingPage() {
       <section className="data-input-section">
         <h2>Upload Your Data</h2>
         <p>
-          Begin forecasting by uploading your historical water usage data. Our model will analyze and provide a forecast for future water demands.
+          Begin forecasting by uploading your historical water usage data.
+          Our model will analyze and provide a forecast for future water demands.
         </p>
-        <button className="upload-btn">Upload Data</button>
+        {/* ✅ Button Linked to Upload Page */}
+        <Link to="/upload">
+          <button className="upload-btn">Upload Data</button>
+        </Link>
       </section>
 
       {/* Benefits Section */}
@@ -44,16 +50,25 @@ function ForecastingPage() {
       <section className="learn-more-section">
         <h2>Want to Learn More?</h2>
         <p>
-          Dive deeper into how our forecasting model works and how you can use it for better planning and management of water resources.
+          Dive deeper into how our forecasting model works and how you can use it
+          for better planning and management of water resources.
         </p>
-        <button className="learn-more-btn">Read the Docs</button>
+        <Link to="/documentation">
+          <button className="learn-more-btn">Read the Docs</button>
+        </Link>
       </section>
 
       {/* Forecast Results Section */}
       <section className="forecast-results-section">
         <h2>Your Water Forecast</h2>
-        <p>View forecasted water usage once your data is uploaded. Stay ahead with accurate predictions for your region.</p>
-        <button className="forecast-btn">View Forecast</button>
+        <p>
+          View forecasted water usage once your data is uploaded.
+          Stay ahead with accurate predictions for your region.
+        </p>
+        {/* ✅ Button Linked to Results Page */}
+        <Link to="/result">
+          <button className="forecast-btn">View Forecast</button>
+        </Link>
       </section>
     </div>
   );
