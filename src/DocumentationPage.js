@@ -1,5 +1,6 @@
 import React from "react";
 import './DocumentationPage.css';
+import Footer from "./Footer";
 
 function DocumentationPage() {
   return (
@@ -120,11 +121,7 @@ function DocumentationPage() {
         </p>
       </section>
 
-      <footer className="documentation-footer">
-        <div className="footer-content">
-          <p>&copy; 2025 WaterAI - All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom"; 
 import './ForecastingPage.css';
+import Footer from "./Footer";
 
 function ForecastingPage() {
   return (
@@ -21,7 +22,7 @@ function ForecastingPage() {
           Begin forecasting by uploading your historical water usage data.
           Our model will analyze and provide a forecast for future water demands.
         </p>
-        {/* ✅ Button Linked to Upload Page */}
+        {/*  Button Linked to Upload Page */}
         <Link to="/upload">
           <button className="upload-btn">Upload Data</button>
         </Link>
@@ -65,11 +66,12 @@ function ForecastingPage() {
           View forecasted water usage once your data is uploaded.
           Stay ahead with accurate predictions for your region.
         </p>
-        {/* ✅ Button Linked to Results Page */}
+        {/* Button Linked to Results Page */}
         <Link to="/result">
           <button className="forecast-btn">View Forecast</button>
         </Link>
       </section>
+      <Footer/>
     </div>
   );
 }

@@ -1,55 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import './ResultsPage.css';
-import { Line } from 'react-chartjs-2'; // Assuming you want to use Chart.js for displaying the forecast
+import "./ResultsPage.css";
+import Footer from "./Footer";
 
-function ResultsPage() {
-  // Sample data for chart (you'll replace this with the actual forecast data)
-  const forecastData = {
-    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // Time periods
-    datasets: [
-      {
-        label: 'Forecasted Water Usage',
-        data: [100, 120, 130, 110], // Forecast data values (replace with actual data)
-        borderColor: '#00bcd4',
-        backgroundColor: 'rgba(0, 188, 212, 0.2)',
-        borderWidth: 2,
-        fill: true
-      }
-    ]
-  };
-
+function ResultPage() {
   return (
-    <div className="results-page">
-      {/* Header Section */}
-      <section className="header-section">
-        <h2>Your Water Forecast Results</h2>
-        <p>Here are the results based on your uploaded data. Review the predicted water demand for the upcoming weeks.</p>
-      </section>
+    <div className="result-page">
+      <h1>Forecast Results</h1>
+      <p>Here's your predicted water usage based on the data you uploaded.</p>
 
-      {/* Forecast Chart */}
-      <section className="forecast-chart">
-        <h3>Water Demand Forecast</h3>
-        <div className="chart-container">
-          <Line data={forecastData} options={{ responsive: true }} />
-        </div>
-      </section>
+      {/* Placeholder for chart */}
+      <div className="chart-placeholder">
+        <p>[Graph of water forecast will appear here]</p>
+      </div>
 
-      {/* Summary Section */}
-      <section className="summary-section">
-        <h3>Summary of the Forecast</h3>
-        <p>The forecast indicates a stable water demand with a slight increase over the next 4 weeks. This data can help in planning water resources more effectively.</p>
-      </section>
+      {/* Forecast Summary */}
+      <div className="forecast-summary">
+        <h2>Forecast Summary</h2>
+        <ul>
+          <li>Average Daily Usage: 123,000 liters</li>
+          <li>Predicted Peak Demand: 145,000 liters on July 18</li>
+          <li>Estimated Annual Usage: 45 million liters</li>
+        </ul>
+      </div>
 
-      {/* Navigation Buttons */}
-      <section className="navigation-buttons">
-        <Link to="/forecast">
-          <button className="back-to-forecast-btn">Back to Forecasting</button>
-        </Link>
-        <button className="download-results-btn">Download Results</button>
-      </section>
+      <button className="back-btn" onClick={() => window.history.back()}>← Go Back</button>
+      
+      <Footer/>
     </div>
   );
 }
 
-export default ResultsPage;
+export default ResultPage;

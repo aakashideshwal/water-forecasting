@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom"; 
 import './UploadPage.css';
+import Footer from "./Footer";
 
 function UploadPage() {
   const [file, setFile] = useState(null);
@@ -64,10 +65,7 @@ function UploadPage() {
         </Link>
       </div>
 
-      {/* Footer Section */}
-      <div className="upload-footer">
-        <p>&copy; 2025 Water Forecasting AI. All rights reserved.</p>
-      </div>
+      <Footer/>
     </div>
   );
 }

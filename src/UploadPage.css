@@ -1,4 +1,3 @@
-/* General Styles */
 body, html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -7,16 +6,16 @@ body, html {
     height: 100%;
   }
   
-  /* Main Page Layout */
+  
   .upload-page {
     margin: 0 auto;
-    min-height: 100vh; /* Ensures the footer sticks to the bottom */
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
-  /* Header Section */
+  
   .upload-header {
     text-align: center;
     margin-bottom: 3rem;
@@ -24,7 +23,7 @@ body, html {
   
   .upload-header h1 {
     font-size: 3rem;
-    color: #172c47;
+    color: #006699;
     font-weight: bold;
     letter-spacing: 1px;
     margin-bottom: 1rem;
@@ -32,12 +31,12 @@ body, html {
   
   .upload-header p {
     font-size: 1.2rem;
-    color: #555;
+    color: #666;
     max-width: 700px;
     margin: 0 auto;
   }
   
-  /* Upload Instructions Section */
+  
   .upload-instructions {
     background-color: #00bcd4;
     color: white;
@@ -144,7 +143,7 @@ body, html {
   }
   
   .upload-btn:hover {
-    background-color: #0097a7;
+    background-color: #0288d1;
     transform: scale(1.05);
   }
   
@@ -158,7 +157,7 @@ body, html {
     transform: none;
   }
   
-  /* Back to Forecasting Button Container */
+  
   .back-to-forecast-btn-container {
     text-align: center;
     margin-top: 3rem;
@@ -168,6 +167,7 @@ body, html {
     background-color: #00bcd4;
     color: white;
     padding: 1.2rem 3rem;
+    margin-bottom: 2rem;
     border: none;
     border-radius: 5px;
     font-size: 1.4rem;
@@ -178,24 +178,8 @@ body, html {
   }
   
   .back-to-forecast-btn:hover {
-    background-color: #0097a7;
+    background-color: #0288d1;
     transform: scale(1.05);
   }
   
-  /* Footer Section */
-  .upload-footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1rem 0;
-    background-color: #172c47;
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .upload-footer p {
-    font-size: 1.2rem;
-    color: #fff;
-    padding: 0;
-  }
   

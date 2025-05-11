@@ -38,14 +38,14 @@
     margin-right: auto;
     padding: 0 20px;
     box-sizing: border-box;
-    text-align: left; /* Align the text left */
+    text-align: left; 
     
   }
   
   .content-section h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    text-align: center; /* Center align the heading */
+    text-align: center; 
   }
   
   .content-section p {
@@ -57,8 +57,8 @@
     overflow-wrap: break-word;
     margin-left: auto;
     margin-right: auto;
-    text-align: left; /* Align paragraph with heading */
-    max-width: 900px; /* Ensure paragraphs don't overflow */
+    text-align: left; 
+    max-width: 900px; 
   }
   
   .content-section ul,
@@ -106,9 +106,9 @@
     color: #555;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    max-height: 180px; /* Increase max height for better content display */
-    flex-grow: 1; /* Allow content to grow within the card */
-    overflow: auto; /* Add scroll if content exceeds max height */
+    max-height: 180px; 
+    flex-grow: 1; 
+    overflow: auto; 
   }
   
   .faq-item {
@@ -136,15 +136,15 @@
     margin: 0;
   }
   
-  /* Fix for better text alignment and overflow handling */
+  
   .content-section p,
   .feature-card p {
     word-wrap: break-word;
     overflow-wrap: break-word;
-    max-width: 100%; /* Prevent text from exceeding the container width */
+    max-width: 100%; 
   }
   
-  /* Ensure proper layout for all content sections */
+ 
   .content-section {
     display: flex;
     flex-direction: column;
@@ -156,8 +156,8 @@
   
   .content-section h2,
   .content-section p {
-    text-align: left; /* Align the text to the left */
-    margin-left: 0; /* Remove any default margin */
+    text-align: left; 
+    margin-left: 0; 
   }
   
   .documentation-page {
@@ -168,7 +168,7 @@
   }
   
   .documentation-footer {
-    margin-top: auto; /* Push the footer to the bottom */
+    margin-top: auto; 
     position: relative;
     width: 100%;
   }

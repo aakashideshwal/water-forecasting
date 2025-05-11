@@ -1,88 +1,81 @@
-/* General Styles */
-.results-page {
-    padding: 3rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Header Section */
-  .header-section {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .header-section h2 {
-    font-size: 2.5rem;
-    color: #172c47;
-    font-weight: bold;
-  }
-  
-  .header-section p {
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Forecast Chart */
-  .forecast-chart {
-    margin-bottom: 3rem;
-    text-align: center;
-  }
-  
-  .forecast-chart h3 {
-    font-size: 2rem;
-    color: #172c47;
-    margin-bottom: 1rem;
-  }
-  
-  .chart-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Summary Section */
-  .summary-section {
-    margin-bottom: 3rem;
-    text-align: center;
-  }
-  
-  .summary-section h3 {
-    font-size: 2rem;
-    color: #172c47;
-    margin-bottom: 1rem;
-  }
-  
-  .summary-section p {
-    font-size: 1.1rem;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* Navigation Buttons */
-  .navigation-buttons {
-    text-align: center;
-  }
-  
-  .navigation-buttons button {
-    background-color: #00bcd4;
-    color: white;
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 1rem;
-  }
-  
-  .navigation-buttons button:hover {
-    background-color: #0097a7;
-    transform: scale(1.05);
-  }
-  
-  .navigation-buttons .download-results-btn {
-    background-color: #004d40;
-  }
-  
+.result-page {
+  font-family: "Arial", sans-serif;
+  background: #f0f8ff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.result-page h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #006699;
+  margin-bottom: 15px;
+}
+
+.result-page p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.chart-placeholder {
+  background: #e0f7fa;
+  border: 2px dashed #00bcd4;
+  padding: 50px;
+  margin: 30px auto;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.forecast-summary {
+  background: #fff;
+  padding: 30px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.forecast-summary h2 {
+  color: #0288d1;
+}
+
+.back-btn {
+  margin-top: 30px;
+  padding: 12px 25px;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: auto; /* Prevent button from stretching too much */
+  max-width: 200px; /* Optional: limits the max width */
+  display: block; /* Ensures it's a block-level element */
+  margin-left: auto;
+  margin-right: auto; /* Centers the button */
+}
+
+.back-btn:hover {
+  background: #0288d1;
+}
+
+/* Footer styling */
+footer {
+  background-color: #172c47;
+  color: white !important; /* Ensures the footer text stays white */
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* Ensure the text inside footer is white */
+footer p {
+  color: white !important;
+}

@@ -1,10 +1,10 @@
 .forecasting-page {
     font-family: 'Arial', sans-serif;
-    padding: 50px;
+    padding: 0px;
     background: #f4f7fc;
   }
   
-  /* Intro Section */
+  
   .intro-section {
     text-align: center;
     background: linear-gradient(45deg, #00bcd4, #0288d1); /* Match the home page blue theme */
@@ -27,7 +27,7 @@
     margin: 0 auto;
   }
   
-  /* Data Input Section */
+  
   .data-input-section {
     background: #ffffff;
     padding: 40px;
@@ -49,7 +49,7 @@
   }
   
   .upload-btn {
-    background-color: #00bcd4; /* Match home page color */
+    background-color: #00bcd4; 
     color: white;
     padding: 12px 30px;
     border: none;
@@ -60,10 +60,10 @@
   }
   
   .upload-btn:hover {
-    background-color: #0288d1; /* Slightly darker for hover effect */
+    background-color: #0288d1; 
   }
   
-  /* Benefits Section */
+  
   .benefits-section {
     text-align: center;
     margin-bottom: 40px;
@@ -104,7 +104,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
   
-  /* Learn More Section */
+  
   .learn-more-section {
     background: #e0f7fa;
     padding: 40px;
@@ -114,7 +114,7 @@
   }
   
   .learn-more-btn {
-    background: #00bcd4; /* Match home page color */
+    background: #00bcd4; 
     color: white;
     padding: 12px 30px;
     border: none;
@@ -125,10 +125,10 @@
   }
   
   .learn-more-btn:hover {
-    background-color: #0288d1; /* Slightly darker for hover effect */
+    background-color: #0288d1; 
   }
   
-  /* Forecast Results Section */
+  
   .forecast-results-section {
     background: #ffffff;
     padding: 40px;
@@ -149,7 +149,7 @@
   }
   
   .forecast-btn {
-    background-color: #00bcd4; /* Match home page color */
+    background-color: #00bcd4; 
     color: white;
     padding: 12px 30px;
     border: none;
@@ -160,6 +160,6 @@
   }
   
   .forecast-btn:hover {
-    background-color: #0288d1; /* Slightly darker for hover effect */
+    background-color: #0288d1; 
   }
   
