@@ -19,29 +19,23 @@ function UploadPage() {
       setErrorMessage("Please upload a valid file.");
       return;
     }
-
+  
     const formData = new FormData();
     formData.append("file", file);
-
+  
     try {
-      const response = await fetch("http://localhost:5000/api/upload", {
+      const res = await fetch("http://127.0.0.1:8000/upload", {
         method: "POST",
-        body: formData,
+        body: formData
       });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log("File uploaded successfully:", result);
-        // Optional: redirect to results page or show success message
-      } else {
-        const err = await response.text();
-        setErrorMessage(`Upload failed: ${err}`);
-      }
-    } catch (error) {
-      console.error("Upload error:", error);
-      setErrorMessage("An error occurred while uploading.");
+      const data = await res.json();
+      console.log(data);
+      alert("File uploaded successfully!");
+    } catch (err) {
+      setErrorMessage("Error uploading file.");
     }
   };
+  
 
   return (
     <div>
