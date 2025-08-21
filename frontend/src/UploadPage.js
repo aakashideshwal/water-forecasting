@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; 
-import './UploadPage.css';
+import { Link } from "react-router-dom";
+import "./UploadPage.css";
 import Footer from "./Footer";
 
 function UploadPage() {
@@ -14,21 +14,43 @@ function UploadPage() {
       setErrorMessage("");
     }
   };
-
-  const handleUploadClick = () => {
+  const handleUploadClick = async () => {
     if (!file) {
       setErrorMessage("Please upload a valid file.");
       return;
     }
-    // Implement file upload logic here
-    console.log("File uploaded:", file);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("File uploaded successfully:", result);
+        // Optional: redirect to results page or show success message
+      } else {
+        const err = await response.text();
+        setErrorMessage(`Upload failed: ${err}`);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+      setErrorMessage("An error occurred while uploading.");
+    }
   };
 
   return (
     <div>
       <div className="upload-header">
         <h1>Upload Your Water Usage Data</h1>
-        <p>Follow the instructions below to upload your historical water usage data and start forecasting future water demands.</p>
+        <p>
+          Follow the instructions below to upload your historical water usage
+          data and start forecasting future water demands.
+        </p>
       </div>
 
       <div className="upload-instructions">
@@ -36,24 +58,22 @@ function UploadPage() {
         <p>Ensure your file follows these guidelines:</p>
         <ul>
           <li>CSV format is preferred.</li>
-          <li>Ensure your data contains historical water usage in a time-series format.</li>
+          <li>
+            Ensure your data contains historical water usage in a time-series
+            format.
+          </li>
           <li>Make sure your file does not exceed 10MB.</li>
         </ul>
-        <p><strong>Note:</strong> Only .csv files are accepted.</p>
+        <p>
+          <strong>Note:</strong> Only .csv files are accepted.
+        </p>
       </div>
 
       <div className="file-upload-section">
         <h2>Select Your File</h2>
-        <input
-          type="file"
-          accept=".csv"
-          onChange={handleFileChange}
-        />
+        <input type="file" accept=".csv" onChange={handleFileChange} />
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button
-          className="upload-btn"
-          onClick={handleUploadClick}
-        >
+        <button className="upload-btn" onClick={handleUploadClick}>
           Upload Data
         </button>
       </div>
@@ -65,7 +85,7 @@ function UploadPage() {
         </Link>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
