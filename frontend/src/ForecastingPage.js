@@ -1,9 +1,51 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; 
+import { useAuth } from './AuthContext';
 import './ForecastingPage.css';
 import Footer from "./Footer";
 
 function ForecastingPage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const auth = useAuth();
+
+  const handleGenerateForecast = async () => {
+    setIsLoading(true);
+    setMessage("Generating forecast... this may take a moment.");
+
+    const formData = new FormData();
+    formData.append("latitude", "28.61");
+    formData.append("longitude", "77.23");
+    formData.append("future_steps", "7");
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/forecast", {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${auth.token}`,
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Failed to generate forecast.");
+      }
+
+      setMessage("Forecast generated successfully! Redirecting to results...");
+      
+      setTimeout(() => {
+        navigate("/result");
+      }, 2000);
+
+    } catch (error) {
+      setMessage(`Error: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="forecasting-page">
       {/* Intro Section */}
@@ -63,13 +105,19 @@ function ForecastingPage() {
       <section className="forecast-results-section">
         <h2>Your Water Forecast</h2>
         <p>
-          View forecasted water usage once your data is uploaded.
-          Stay ahead with accurate predictions for your region.
+          After uploading your data, generate a forecast. 
+          Then, view the results to stay ahead with accurate predictions.
         </p>
-        {/* Button Linked to Results Page */}
-        <Link to="/result">
-          <button className="forecast-btn">View Forecast</button>
-        </Link>
+        <div className="forecast-actions">
+          <button 
+            className="forecast-btn" 
+            onClick={handleGenerateForecast} 
+            disabled={isLoading}
+          >
+            {isLoading ? "Generating..." : "Generate Forecast"}
+          </button>
+        </div>
+        {message && <p style={{marginTop: '20px'}}>{message}</p>}
       </section>
       <Footer/>
     </div>

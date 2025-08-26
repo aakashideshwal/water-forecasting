@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 import waterImage from "./assets/water-landscape.jpg";
 
@@ -23,7 +24,6 @@ function HomePage() {
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#why">Why Forecasting?</a></li>
-          <li><a href="#get-started">Get Started</a></li>
         </ul>
       </nav>
 
@@ -32,7 +32,7 @@ function HomePage() {
         <div className="hero-text">
           <h1>Water Forecasting</h1>
           <p>Harnessing AI to predict and protect future water needs</p>
-          <a href="#get-started" className="hero-btn">Start Forecasting</a>
+          <Link to="/signup" className="hero-btn">Start Forecasting</Link>
         </div>
       </section>
 
@@ -53,13 +53,6 @@ function HomePage() {
           As populations grow and climates change, water resource management becomes
           increasingly vital. Forecasting helps avoid droughts, floods, and wastage.
         </p>
-      </section>
-
-      {/* CTA Section */}
-      <section className="content-section" id="get-started">
-        <h2>Get Started</h2>
-        <p>Ready to explore the forecast for your region? Upload your data or view insights now.</p>
-        <a href="/forecast" className="cta-btn">Go to Forecast</a>
       </section>
 
       {/* Footer */}

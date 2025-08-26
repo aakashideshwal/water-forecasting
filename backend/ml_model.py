@@ -3,13 +3,21 @@ import requests
 from sklearn.linear_model import LinearRegression
 from datetime import timedelta
 
-# Open-Meteo API URL for weather forecasts
+# Open-Meteo API URLs
 WEATHER_API_URL = "https://api.open-meteo.com/v1/forecast"
+ARCHIVE_API_URL = "https://archive-api.open-meteo.com/v1/era5"
 
 def get_weather_data(latitude, longitude, start_date, end_date):
     """
-    Fetches daily weather data (max temp and precipitation) for a given location and date range.
+    Fetches daily weather data. It intelligently chooses between the archive API for historical
+    data and the forecast API for future data.
     """
+    # Determine which API to use based on the end_date
+    from datetime import datetime
+    is_historical = datetime.strptime(end_date, "%Y-%m-%d") < datetime.now()
+    
+    url = ARCHIVE_API_URL if is_historical else WEATHER_API_URL
+
     params = {
         "latitude": latitude,
         "longitude": longitude,
@@ -18,9 +26,13 @@ def get_weather_data(latitude, longitude, start_date, end_date):
         "start_date": start_date,
         "end_date": end_date,
     }
-    response = requests.get(WEATHER_API_URL, params=params)
+    response = requests.get(url, params=params)
     if response.status_code != 200:
-        raise Exception("Failed to fetch weather data from Open-Meteo API.")
+        error_details = response.text
+        raise Exception(
+            f"Failed to fetch weather data from Open-Meteo API. "
+            f"Status Code: {response.status_code}. Details: {error_details}"
+        )
 
     data = response.json()
     df = pd.DataFrame(data["daily"])
@@ -86,6 +98,10 @@ class ForecastModel:
         # Prepare results
         result_df = future_weather_df.copy()
         result_df["predicted_usage"] = future_predictions
+
+        # Convert date columns to string format for JSON compatibility
+        training_df['date'] = training_df['date'].dt.strftime('%Y-%m-%d')
+        result_df['date'] = result_df['date'].dt.strftime('%Y-%m-%d')
 
         return {
             "historical_data": training_df.to_dict("records"),
