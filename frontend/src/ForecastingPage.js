@@ -13,6 +13,11 @@ function ForecastingPage() {
   const navigate = useNavigate();
   const auth = useAuth();
 
+  const handleLogout = () => {
+    auth.logout();
+    navigate('/login');
+  };
+
   const handleGenerateForecast = async () => {
     setIsLoading(true);
     setMessage("Generating forecast... this may take a moment.");
@@ -54,6 +59,7 @@ function ForecastingPage() {
     <div className="forecasting-page">
       {/* Intro Section */}
       <section className="intro-section">
+        <button onClick={handleLogout} className="logout-btn">Logout</button>
         <h2>Water Demand Forecasting</h2>
         <p>
           Discover how AI and machine learning can help us predict future water needs,
