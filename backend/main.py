@@ -8,9 +8,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
-from . import crud, db_models, schemas, security
-from .database import SessionLocal, engine
-from .ml_model import ForecastModel
+import crud, db_models, schemas, security
+from database import SessionLocal, engine
+from ml_model import ForecastModel, get_flood_forecast
 
 # Create all database tables
 db_models.Base.metadata.create_all(bind=engine)
@@ -20,7 +20,7 @@ app = FastAPI(title="Water Forecasting API with Auth")
 # --- Middleware ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app
+    allow_origins=["*"],  # Allow all origins for development
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -115,13 +115,27 @@ async def forecast(
     files = sorted(os.listdir(UPLOAD_DIR), key=lambda f: os.path.getmtime(os.path.join(UPLOAD_DIR, f)))
     if not files:
         raise HTTPException(status_code=404, detail="No file has been uploaded yet.")
+    
     latest_file = files[-1]
     filepath = os.path.join(UPLOAD_DIR, latest_file)
     df = pd.read_csv(filepath)
+
     try:
-        results = ml_model.train_and_predict(df, latitude, longitude, future_steps)
+        # 1. Get the personalized water usage forecast
+        usage_forecast_data = ml_model.train_and_predict(df, latitude, longitude, future_steps)
+
+        # 2. Get the general flood forecast for the location
+        flood_forecast_data = get_flood_forecast(latitude, longitude, future_steps)
+
+        # 3. Combine results into a single response object
+        results = {
+            "usage_forecast": usage_forecast_data,
+            "flood_forecast": flood_forecast_data
+        }
+
         with open(RESULT_FILE, "w") as f:
             json.dump(results, f)
+        
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred during forecasting: {e}")

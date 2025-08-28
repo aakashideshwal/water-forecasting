@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; 
 import { useAuth } from './AuthContext';
 import './ForecastingPage.css';
+import './SignupPage.css'; 
 import Footer from "./Footer";
 
 function ForecastingPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [latitude, setLatitude] = useState('28.61'); // Default to New Delhi
+  const [longitude, setLongitude] = useState('77.23'); // Default to New Delhi
   const navigate = useNavigate();
   const auth = useAuth();
 
@@ -15,10 +18,11 @@ function ForecastingPage() {
     setMessage("Generating forecast... this may take a moment.");
 
     const formData = new FormData();
-    formData.append("latitude", "28.61");
-    formData.append("longitude", "77.23");
+    formData.append("latitude", latitude);
+    formData.append("longitude", longitude);
     formData.append("future_steps", "7");
 
+    console.log("Token being sent with request:", auth.token);
     try {
       const response = await fetch("http://127.0.0.1:8000/forecast", {
         method: "POST",
@@ -64,10 +68,49 @@ function ForecastingPage() {
           Begin forecasting by uploading your historical water usage data.
           Our model will analyze and provide a forecast for future water demands.
         </p>
-        {/*  Button Linked to Upload Page */}
         <Link to="/upload">
           <button className="upload-btn">Upload Data</button>
         </Link>
+      </section>
+
+      {/* Forecast Generation Section */}
+      <section className="forecast-results-section">
+        <h2>Generate Your Water Forecast</h2>
+        <p>
+          After uploading your data, enter a location and generate a forecast.
+        </p>
+        
+        <div className="location-inputs">
+          <div className="form-group">
+            <label htmlFor="latitude">Latitude</label>
+            <input 
+              type="text" 
+              id="latitude" 
+              value={latitude}
+              onChange={(e) => setLatitude(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="longitude">Longitude</label>
+            <input 
+              type="text" 
+              id="longitude" 
+              value={longitude}
+              onChange={(e) => setLongitude(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="forecast-actions">
+          <button 
+            className="forecast-btn" 
+            onClick={handleGenerateForecast} 
+            disabled={isLoading}
+          >
+            {isLoading ? "Generating..." : "Generate Forecast"}
+          </button>
+        </div>
+        {message && <p style={{marginTop: '20px'}}>{message}</p>}
       </section>
 
       {/* Benefits Section */}
@@ -89,36 +132,6 @@ function ForecastingPage() {
         </div>
       </section>
 
-      {/* Learn More Section */}
-      <section className="learn-more-section">
-        <h2>Want to Learn More?</h2>
-        <p>
-          Dive deeper into how our forecasting model works and how you can use it
-          for better planning and management of water resources.
-        </p>
-        <Link to="/documentation">
-          <button className="learn-more-btn">Read the Docs</button>
-        </Link>
-      </section>
-
-      {/* Forecast Results Section */}
-      <section className="forecast-results-section">
-        <h2>Your Water Forecast</h2>
-        <p>
-          After uploading your data, generate a forecast. 
-          Then, view the results to stay ahead with accurate predictions.
-        </p>
-        <div className="forecast-actions">
-          <button 
-            className="forecast-btn" 
-            onClick={handleGenerateForecast} 
-            disabled={isLoading}
-          >
-            {isLoading ? "Generating..." : "Generate Forecast"}
-          </button>
-        </div>
-        {message && <p style={{marginTop: '20px'}}>{message}</p>}
-      </section>
       <Footer/>
     </div>
   );

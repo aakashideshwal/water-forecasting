@@ -4,7 +4,7 @@ import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
 import HomePage from "./HomePage";
 import ForecastingPage from "./ForecastingPage";
-import DocumentationPage from "./DocumentationPage";
+
 import UploadPage from './UploadPage';
 import ResultPage from "./ResultsPage";
 import LoginPage from "./LoginPage";
@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/documentation" element={<DocumentationPage />} />
+          
 
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>

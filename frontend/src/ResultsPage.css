@@ -23,19 +23,22 @@
 }
 
 .chart-placeholder {
-  background: #e0f7fa;
-  border: 2px dashed #00bcd4;
-  padding: 50px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
   margin: 30px auto;
-  border-radius: 10px;
-  width: 80%;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .forecast-summary {
   background: #fff;
   padding: 30px;
   margin: 20px auto;
-  width: 80%;
+  width: 90%;
+  max-width: 1200px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -43,6 +46,65 @@
 
 .forecast-summary h2 {
   color: #0288d1;
+}
+
+/* --- Risk Assessment Section --- */
+.risk-assessment-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.risk-assessment-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.risk-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.risk-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    border-left: 5px solid #f0ad4e; /* Default warning color */
+}
+
+.risk-card.high-risk {
+    border-left-color: #d9534f; /* Red for high risk */
+}
+
+.risk-card.low-risk {
+    border-left-color: #5cb85c; /* Green for low risk */
+}
+
+.risk-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.risk-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.risk-card .value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #0288d1;
 }
 
 .back-btn {
@@ -54,28 +116,26 @@
   border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
-  width: auto; /* Prevent button from stretching too much */
-  max-width: 200px; /* Optional: limits the max width */
-  display: block; /* Ensures it's a block-level element */
+  width: auto;
+  max-width: 200px;
+  display: block;
   margin-left: auto;
-  margin-right: auto; /* Centers the button */
+  margin-right: auto;
 }
 
 .back-btn:hover {
   background: #0288d1;
 }
 
-/* Footer styling */
 footer {
   background-color: #172c47;
-  color: white !important; /* Ensures the footer text stays white */
+  color: white !important;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  margin-top: auto; /* Pushes the footer to the bottom */
+  margin-top: auto;
 }
 
-/* Ensure the text inside footer is white */
 footer p {
   color: white !important;
 }

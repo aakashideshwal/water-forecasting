@@ -1,21 +1,19 @@
 import pandas as pd
 import requests
 from sklearn.linear_model import LinearRegression
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 # Open-Meteo API URLs
 WEATHER_API_URL = "https://api.open-meteo.com/v1/forecast"
 ARCHIVE_API_URL = "https://archive-api.open-meteo.com/v1/era5"
+FLOOD_API_URL = "https://flood-api.open-meteo.com/v1/flood"
 
 def get_weather_data(latitude, longitude, start_date, end_date):
     """
     Fetches daily weather data. It intelligently chooses between the archive API for historical
     data and the forecast API for future data.
     """
-    # Determine which API to use based on the end_date
-    from datetime import datetime
     is_historical = datetime.strptime(end_date, "%Y-%m-%d") < datetime.now()
-    
     url = ARCHIVE_API_URL if is_historical else WEATHER_API_URL
 
     params = {
@@ -46,6 +44,24 @@ def get_weather_data(latitude, longitude, start_date, end_date):
         inplace=True,
     )
     return df
+
+def get_flood_forecast(latitude, longitude, days=7):
+    """Fetches river discharge forecast for the next few days."""
+    params = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "daily": "river_discharge",
+        "forecast_days": days,
+    }
+    response = requests.get(FLOOD_API_URL, params=params)
+    if response.status_code != 200:
+        error_details = response.text
+        raise Exception(
+            f"Failed to fetch flood data from Open-Meteo API. "
+            f"Status Code: {response.status_code}. Details: {error_details}"
+        )
+    return response.json()
+
 
 class ForecastModel:
     def __init__(self):
