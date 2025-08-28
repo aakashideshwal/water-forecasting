@@ -63,37 +63,45 @@ function SignupPage() {
 
     return (
         <div className="auth-page">
-            <div className="auth-container">
-                <h2>Create Account</h2>
-                <form onSubmit={handleSubmit} className="auth-form">
-                    <div className="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="auth-btn" disabled={isLoading}>
-                        {isLoading ? 'Signing Up...' : 'Sign Up'}
-                    </button>
-                </form>
-                {error && <p className="error-message">{error}</p>}
-                <p className="auth-switch-link">
-                    Already have an account? <Link to="/login">Log In</Link>
-                </p>
+            <div className="auth-panel auth-image-panel">
+                <div className="image-panel-content">
+                    <h1>WaterAI</h1>
+                    <p>Harnessing AI to predict and protect future water needs.</p>
+                </div>
+            </div>
+            <div className="auth-panel auth-form-panel">
+                <div className="auth-container">
+                    <h2>Create Account</h2>
+                    <form onSubmit={handleSubmit} className="auth-form">
+                        <div className="form-group">
+                            <label htmlFor="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn-primary" disabled={isLoading}>
+                            {isLoading ? 'Signing Up...' : 'Sign Up'}
+                        </button>
+                    </form>
+                    {error && <p className="error-message">{error}</p>}
+                    <p className="auth-switch-link">
+                        Already have an account? <Link to="/login">Log In</Link>
+                    </p>
+                </div>
             </div>
         </div>
     );

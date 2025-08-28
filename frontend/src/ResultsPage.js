@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./ResultsPage.css";
 import "./ForecastingPage.css"; // Re-use styles from ForecastingPage
 import Footer from "./Footer";
+import PageHeader from './PageHeader';
 import {
   LineChart,
   Line,
@@ -117,10 +118,7 @@ function ResultPage() {
 
   return (
     <div className="result-page">
-      <section className="intro-section">
-        <h2>Your Forecast Results</h2>
-        <p>A complete analysis of your water usage forecast and hydro-climatic risks.</p>
-      </section>
+      <PageHeader title="Your Forecast Results" subtitle="Smart Predictions for Better Planning" />
 
       {/* Main Chart Section */}
       <div className="chart-placeholder">
@@ -200,9 +198,11 @@ function ResultPage() {
         </ul>
       </div>
 
-      <button className="back-btn" onClick={() => window.history.back()}>
-        ← Go Back
-      </button>
+      <div className="back-button-container">
+        <button className="upload-btn" onClick={() => window.history.back()}>
+          ← Go Back
+        </button>
+      </div>
 
       <Footer />
     </div>

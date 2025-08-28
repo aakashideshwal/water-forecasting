@@ -32,7 +32,7 @@ function HomePage() {
         <div className="hero-text">
           <h1>Water Forecasting</h1>
           <p>Harnessing AI to predict and protect future water needs</p>
-          <Link to="/signup" className="hero-btn">Start Forecasting</Link>
+          <Link to="/signup" className="btn-primary">Start Forecasting</Link>
         </div>
       </section>
 

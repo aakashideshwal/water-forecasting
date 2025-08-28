@@ -1,4 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* --- Global Button Styles --- */
+.btn-primary {
+    background: linear-gradient(45deg, #00bcd4, #0288d1);
+    color: white !important;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(2, 136, 209, 0.2);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    box-shadow: 0 6px 20px rgba(2, 136, 209, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+    background: #a0a0a0;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #555 !important;
+    padding: 10px 25px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+    border-color: #a0a0a0;
+}

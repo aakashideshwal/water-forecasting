@@ -1,141 +1,194 @@
-.result-page {
-  font-family: "Arial", sans-serif;
-  background: #f0f8ff;
+/* General Page Layout */
+.results-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  text-align: center;
+  background-color: #f0f2f5; /* Light gray background for the whole page */
+  color: #333; /* Default text color */
 }
 
-.result-page h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #006699;
-  margin-bottom: 15px;
+/* Main Content Area */
+.results-container {
+  flex-grow: 1;
+  padding: 3rem 2rem; /* More padding for a spacious feel */
+  max-width: 1200px; /* Max width for content to prevent stretching on large screens */
+  margin: 0 auto; /* Center the container */
+  width: 100%; /* Ensure it takes full width up to max-width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.result-page p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-.chart-placeholder {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  padding: 20px;
-  margin: 30px auto;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 1200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
+/* Section Styling */
+.risk-assessment-section,
 .forecast-summary {
-  background: #fff;
-  padding: 30px;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 1200px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
+  background: #ffffff; /* White background for sections */
+  padding: 2.5rem; /* Generous padding */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Softer, more pronounced shadow */
+  margin-bottom: 2.5rem; /* Space between sections */
+  text-align: center; /* Center content within sections */
+}
+
+/* Main Section Headings (h2) */
+/* Adjusted for "Detailed Forecast Charts" to be a subheading */
+.risk-assessment-section h2 {
+  font-size: 2.2rem; /* Smaller font size for subheading */
+  color: #172c47; /* Changed color to #172c47 */
+  margin-bottom: 1.5rem; /* Adjusted space below heading */
+  font-weight: 700; /* Bolder headings */
 }
 
 .forecast-summary h2 {
-  color: #0288d1;
+  font-size: 2.2rem; /* Smaller font size for subheading */
+  color: #172c47; /* Changed color to #172c47 */
+  margin-bottom: 1.5rem; /* Adjusted space below heading */
+  font-weight: 700; /* Bolder headings */
 }
 
-/* --- Risk Assessment Section --- */
-.risk-assessment-section {
-  width: 90%;
-  max-width: 1200px;
-  margin: 20px auto;
-  text-align: left;
+/* Chart Containers */
+.chart-placeholder {
+  background: #ffffff; /* White background for charts */
+  padding: 2.5rem; /* Increased padding inside chart container */
+  border-radius: 12px; /* Consistent rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  margin-bottom: 3rem; /* Increased space below each chart for better separation */
+  text-align: center; /* Center content within chart placeholder */
 }
 
-.risk-assessment-section h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
+/* Subsection Headings (h3) within chart containers */
+.chart-placeholder h3 {
+  font-size: 1.8rem; /* Chart titles, consistent with benefit-card h3 */
+  color: #172c47; /* Dark blue for distinction */
+  margin-bottom: 1.5rem; /* Space below chart title */
+  font-weight: 600; /* Medium bold */
 }
 
+/* Risk Cards Layout */
 .risk-cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  gap: 2rem; /* Space between cards */
+  justify-content: center; /* Center cards horizontally */
+  margin-top: 2rem; /* Space above cards */
 }
 
 .risk-card {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    flex: 1;
-    min-width: 280px;
-    max-width: 400px;
-    border-left: 5px solid #f0ad4e; /* Default warning color */
+  flex: 1; /* Allow cards to grow and shrink */
+  min-width: 280px; /* Minimum width for cards */
+  max-width: 45%; /* Max width to allow two cards per row on larger screens */
+  background: #f8f9fa; /* Light background for cards */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
-.risk-card.high-risk {
-    border-left-color: #d9534f; /* Red for high risk */
-}
-
-.risk-card.low-risk {
-    border-left-color: #5cb85c; /* Green for low risk */
+.risk-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .risk-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.risk-card p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.6;
+  font-size: 1.6rem;
+  color: #172c47; /* Dark blue for distinction */
+  margin-bottom: 0.8rem;
 }
 
 .risk-card .value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #0288d1;
+  font-size: 2.5rem; /* Larger value text */
+  font-weight: 700;
+  color: #00bcd4; /* Highlight color for values */
+  margin-bottom: 0.5rem;
 }
 
-.back-btn {
-  margin-top: 30px;
-  padding: 12px 25px;
-  background: #00bcd4;
-  color: white;
-  border: none;
-  border-radius: 30px;
+.risk-card p {
   font-size: 1rem;
-  cursor: pointer;
-  width: auto;
-  max-width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  color: #666;
 }
 
-.back-btn:hover {
-  background: #0288d1;
+/* Risk Level Indicators */
+.risk-card.low-risk {
+  border-left: 8px solid #28a745; /* Green for low risk */
 }
 
-footer {
-  background-color: #172c47;
-  color: white !important;
+.risk-card.warning {
+  border-left: 8px solid #ffc107; /* Yellow for warning */
+}
+
+.risk-card.high-risk {
+  border-left: 8px solid #dc3545; /* Red for high risk */
+}
+
+/* Forecast Summary List */
+.forecast-summary ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.forecast-summary li {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+.forecast-summary li:last-child {
+  margin-bottom: 0;
+}
+
+/* Go Back Button Styling (re-using upload-btn for consistency) */
+.back-button-container {
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  margin-top: auto;
+  margin-top: 3rem; /* Space from the last section */
+  margin-bottom: 3rem; /* Space from the footer */
 }
 
-footer p {
-  color: white !important;
+.upload-btn {
+  background-color: #00bcd4; /* Primary button color */
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px; /* Pill shape */
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Prominent shadow */
+  display: inline-block;
+  text-decoration: none; /* Remove underline for links if applied */
+}
+
+.upload-btn:hover {
+  background-color: #0288d1; /* Darker shade on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .results-container {
+    padding: 2rem 1rem;
+  }
+
+  .risk-assessment-section h2,
+  .forecast-summary h2 {
+    font-size: 2.2rem;
+  }
+
+  .chart-placeholder h3 {
+    font-size: 1.5rem;
+  }
+
+  .risk-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .risk-card {
+    max-width: 90%; /* Full width on small screens */
+  }
+
+  .upload-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
 }

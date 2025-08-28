@@ -4,6 +4,7 @@ import { useAuth } from './AuthContext';
 import './ForecastingPage.css';
 import './SignupPage.css'; 
 import Footer from "./Footer";
+import PageHeader from "./PageHeader"; // Import PageHeader
 
 function ForecastingPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -57,15 +58,30 @@ function ForecastingPage() {
 
   return (
     <div className="forecasting-page">
-      {/* Intro Section */}
-      <section className="intro-section">
-        <button onClick={handleLogout} className="logout-btn">Logout</button>
-        <h2>Water Demand Forecasting</h2>
-        <p>
-          Discover how AI and machine learning can help us predict future water needs,
-          ensuring sustainability and optimal resource management.
-        </p>
-      </section>
+      <PageHeader 
+        title="Water Demand Forecasting"
+        subtitle="Upload your historical data and generate AI-powered usage predictions."
+      >
+        <button onClick={handleLogout} style={{
+          background: 'linear-gradient(45deg, #00bcd4, #0288d1)',
+          color: 'white',
+          padding: '12px 28px',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          fontSize: '1rem',
+          fontWeight: 'bold',
+          textDecoration: 'none',
+          display: 'inline-block',
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 15px rgba(2, 136, 209, 0.2)',
+          transform: 'translateY(0)',
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          zIndex: 2
+        }}>Logout</button>
+      </PageHeader>
 
       {/* Data Input Section */}
       <section className="data-input-section">
@@ -75,7 +91,7 @@ function ForecastingPage() {
           Our model will analyze and provide a forecast for future water demands.
         </p>
         <Link to="/upload">
-          <button className="upload-btn">Upload Data</button>
+          <button className="btn-primary">Upload Data</button>
         </Link>
       </section>
 
@@ -109,7 +125,7 @@ function ForecastingPage() {
 
         <div className="forecast-actions">
           <button 
-            className="forecast-btn" 
+            className="btn-primary" 
             onClick={handleGenerateForecast} 
             disabled={isLoading}
           >
